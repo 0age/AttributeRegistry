@@ -1,0 +1,24 @@
+sudo: required
+language: node_js
+node_js:
+  - "9"
+services:
+  - docker
+before_install:
+  # ganache-cli
+  - docker pull trufflesuite/ganache-cli
+  - docker run -d -p 8545:8545 trufflesuite/ganache-cli:latest -h 0.0.0.0 --gasLimit 8000000
+  # yarn
+  - sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
+  - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  - sudo apt-get update -qq
+  - sudo apt-get install -y -qq yarn
+install:
+  - yarn global add coveralls
+  - yarn install
+script:
+  - yarn run coverage && cat coverage/lcov.info | coveralls
+  - yarn test
+  - yarn run linter
+cache:
+  yarn: true

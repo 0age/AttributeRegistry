@@ -63,7 +63,7 @@ Check if an attribute has been assigned to a given account on the registry and i
 
 _**NOTE**_: This function MUST return either true or false - i.e. calling this function MUST NOT cause the caller to revert. Implementations that wish to call into another contract during execution of this function MUST catch any `revert` and instead return `false`.
 
-_**NOTE**_: This function MUST return two equal values when performing two consecutive function calls with identical `address` and `attribute` parameters, regardless of either caller's address or any other factors. In other words, variability of the function output is derived entirely from the storage state and the two designated parameters.
+_**NOTE**_: This function MUST return two equal values when performing two consecutive function calls with identical `account` and `attributeTypeID` parameters, regardless of either caller's address or any other factors. In other words, variability of the function output is derived entirely from the storage state and the two designated parameters.
 
 #### `getAttributeValue` function
 ```
@@ -89,7 +89,7 @@ _**NOTE**_: This function MUST return a value that encompasses all indexes of at
 
 #### `getAttributeTypeID` function
 ```
-function getAttributeTypeID(uint256 _index) external view returns (uint256)
+function getAttributeTypeID(uint256 index) external view returns (uint256)
 ```
 
 Retrieve an ID of an attribute type defined on the registry by index.

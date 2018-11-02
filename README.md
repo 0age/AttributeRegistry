@@ -6,9 +6,9 @@
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg)](https://github.com/RichardLitt/standard-readme)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-> A EIP proposing an interface for querying a registry for attribute metadata assigned to Ethereum addresses.
+> An EIP proposing an interface for querying a registry for attribute metadata assigned to Ethereum addresses.
 
-Existing EIPs for assigning metadata to an address include EIP-735 and EIP-780, which both allow for multiple claims to be issued on the same address for any given claim topic. This forces verifiers of said metadata to assess the veracity of each claim, taking into account the relative reputation of each claim issuer. It also prescribes a methodology for adding and removing claims, which may not be appropriate for all use cases.
+Existing EIPs for assigning metadata to addresses include EIP-735 and EIP-780, which both allow for multiple claims to be issued on the same address for any given claim topic. This forces verifiers of said metadata to assess the veracity of each claim, taking into account the relative reputation of each claim issuer. It also prescribes a methodology for adding and removing claims, which may not be appropriate for all use cases.
 
 This EIP proposes an alternative light-weight standard for an address metadata registry interface, differentiated from claims by designating metadata as an "attribute" on an address. Attributes are registered as a flat `uint256 -> uint256` key-value pair on each address, with the important property that **each attribute has one canonical value per address**.
 

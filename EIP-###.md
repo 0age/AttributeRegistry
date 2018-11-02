@@ -38,7 +38,7 @@ This EIP is motivated by the need for contracts and external accounts to be able
 
 ## Specification
 <!--The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for any of the current Ethereum platforms (go-ethereum, parity, cpp-ethereum, ethereumj, ethereumjs, and [others](https://github.com/ethereum/wiki/wiki/Clients)).-->
-The Attribute Registry interface contains three functions, outlined as follows:
+The Attribute Registry interface contains four functions, outlined as follows:
 ```
 pragma solidity ^0.4.25;
 

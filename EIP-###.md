@@ -22,8 +22,8 @@ Existing EIPs for assigning metadata to an address include EIP-735 and EIP-780, 
 This EIP proposes a light-weight abstraction layer for a standard address metadata registry interface. This abstraction layer can sit on top of claims registries like EIP-735 and EIP-780 or others.
 
 This EIP contains the following core ideas:
-1. Instead of relying directly on the reputation of a claims issuer to assess the veracity of a given claim, trust can be brought up to the level of a registry curator. This registry which we call an "attribute registry" allows for reduced complexity in implementation since a party needing to verify an attribute can now work with a trusted claims aggregator instead of relying on individual claim providers.
-2. Claims are abstracted as standard "attributes" which represents metadata assigned to a given address. This is achieved due to decoupling of claims from the issuing party. Attributes are registered as a flat `uint256 -> uint256` key-value pair on each address, with the important property that **each attribute has one canonical value per address**. This property allows for composability of attribute registries and advanced attribute formation.
+1. Instead of relying directly on the reputation of a claims issuer to assess the veracity of a given claim, trust can be brought up to the level of a registry curator. This registry which we call an "**Attribute Registry**" allows for reduced complexity in implementation since a party needing to verify an attribute can now work with a trusted claims aggregator instead of relying on individual claim providers.
+2. Claims are abstracted as standard "attributes" which represents metadata assigned to a given address. This is achieved due to decoupling of claims from the issuing party. Attributes are registered as a flat `uint256 -> uint256` key-value pair on each address, with the important property that **each attribute type has one canonical value per address**. This property allows for composability of attribute registries and advanced attribute formation.
 3. Provides a general method for determining the set of attribute keys or IDs made available by the registry.  but otherwise does not lay out any requirements or recommendations for how attributes and their values are managed, or what additional metadata may be associated with attributes.
 
 Although this EIP proposes a general method for determining the set of attribute keys or IDs made available by the registry, it does not lay out any requirements or recommendations for how attributes and their values are defined and managed, or what metadata may be associated with attributes.
@@ -84,7 +84,7 @@ Check if an attribute has been assigned to a given account on the registry and i
 
 _**NOTE**_: This function MUST return either true or false - i.e. calling this function MUST NOT cause the caller to revert. Implementations that wish to call into another contract during execution of this function MUST catch any `revert` and instead return `false`.
 
-_**NOTE**_: This function MUST return two equal values when performing two consecutive function calls with identical `account` and `attributeTypeID` parameters, regardless of the caller's address or any other factors. In other words, variability of the function output is derived entirely from the storage state and the two designated parameters.
+_**NOTE**_: This function MUST return two equal values when performing two directly consecutive function calls with identical `account` and `attributeTypeID` parameters, regardless of differences in the caller's address, the transaction origin, or other out-of-band information.
 
 #### `getAttributeValue` function
 ```
@@ -95,7 +95,7 @@ Retrieve the `uint256` value of an attribute on a given account on the registry,
 
 _**NOTE**_: This function MUST revert if a directly preceding or subsequent function call to `hasAttribute` with identical `account` and `attributeTypeID` parameters would return false.
 
-_**NOTE**_: This function MUST return two equal values when performing two consecutive function calls with identical `account` and `attributeTypeID` parameters, regardless of either caller's address or any other factors. In other words, variability of the function output is derived entirely from the storage state and the two designated parameters.
+_**NOTE**_: This function MUST return two equal values when performing two directly consecutive function calls with identical `account` and `attributeTypeID` parameters, regardless of differences in the caller's address, the transaction origin, or other out-of-band information.
 
 #### `countAttributeTypes` function
 ```

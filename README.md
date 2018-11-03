@@ -8,11 +8,11 @@
 
 > An EIP proposing an interface for querying a registry for attribute metadata assigned to Ethereum addresses.
 
-This EIP proposes an alternative light-weight standard for an address metadata registry interface, differentiated from claims by designating metadata as an "attribute" on an address. Attributes are registered as a flat `uint256 -> uint256` key-value pair on each address, with the important property that **each attribute has one canonical value per address**.
+This EIP proposes a light-weight standard for an address metadata registry interface, differentiated from claims by designating metadata as an "attribute" on an address. Attributes are registered as a flat `uint256 -> uint256` key-value pair on each address, with the important property that **each attribute has one canonical value per address**.
 
 This EIP also prescribes a general method for determining the set of attribute keys or IDs made available by the registry, but otherwise does not lay out any requirements or recommendations for how attributes and their values are managed, or what additional metadata may be associated with attributes.
 
-Existing EIPs for assigning metadata to addresses include EIP-735 and EIP-780, which both allow for multiple claims to be issued on the same address for any given claim topic. This forces verifiers of said metadata to assess the veracity of each claim, taking into account the relative reputation of each claim issuer. It also prescribes a methodology for adding and removing claims, which may not be appropriate for all use cases.
+Existing EIPs for assigning metadata to addresses include EIP-735 and EIP-780, which both allow for multiple claims to be issued on the same address for any given claim topic. This forces verifiers of said metadata to assess the veracity of each claim, taking into account the relative reputation of each claim issuer. It also prescribes a methodology for adding and removing claims, which may not be appropriate for all use cases. The Attribute Registry serves as an alternative standard in cases where these limitations are problematic.
 
 For more information, see the [EIP specification](https://github.com/0age/AttributeRegistry/blob/master/EIP-%23%23%23.md).
 

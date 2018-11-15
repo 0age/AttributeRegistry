@@ -20,9 +20,7 @@ EIP-### provides a basic interface for querying a registry for attribute metadat
 This EIP contains the following core ideas:
 1. Instead of relying directly on the reputation of a claims issuer to assess the veracity of a given claim, trust can be brought up to the level of a registry curator. This registry which we call an "**Attribute Registry**" allows for reduced complexity in implementation since a party needing to verify an attribute can now work with a trusted claims aggregator instead of relying on individual claim providers.
 2. Claims are abstracted as standard "attributes" which represents metadata assigned to a given address. This is achieved due to decoupling of claims from the issuing party. Attributes are registered as a flat `uint256 -> uint256` key-value pair on each address, with the important property that **each attribute type has one canonical value per address**. This property allows for composability of attribute registries and advanced attribute formation.
-3. Provides a general method for determining the set of attribute keys or IDs made available by the registry.  but otherwise does not lay out any requirements or recommendations for how attributes and their values are managed, or what additional metadata may be associated with attributes.
-
-Although this EIP proposes a general method for determining the set of attribute keys or IDs made available by the registry, it does not lay out any requirements or recommendations for how attributes and their values are defined and managed, or what metadata may be associated with attributes.
+3. There is a generic method for determining the set of attribute keys or IDs made available by the registry. The standard does not specify requirements or recommendations for how attributes and their values are managed, or what additional metadata may be associated with attributes. It is likely that a standard set of attribute names and metadata schema could be proposed in a separate EIP.
 
 Here are potential advanced uses of attribute registries:
 1. Encoding complex boolean expressions which combine multiple attributes into a single uint256 key which is then parsed and evaluated by the registry logic.
@@ -34,7 +32,7 @@ This EIP is motivated by the need for contracts and external accounts to be able
 
 Existing EIPs for assigning metadata to an address include EIP-735 and EIP-780, which both allow for multiple claims to be issued on the same address for any given claim topic. This forces verifiers of said metadata to assess the veracity of each claim, taking into account the relative reputation of each claim issuer. It also prescribes a methodology for adding and removing claims, which may not be appropriate for all use cases.
 
-This EIP proposes a light-weight abstraction layer for a standard address metadata registry interface. This abstraction layer can sit on top of claims registries like EIP-735 and EIP-780 or others.
+This EIP proposes a light-weight abstraction layer for a standard address metadata registry interface. This abstraction layer can sit on top of claims registries like EIP-735 and EIP-780 or others as the attribute registry curator selects trusted data sources.
 
 ## Specification
 <!--The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for any of the current Ethereum platforms (go-ethereum, parity, cpp-ethereum, ethereumj, ethereumjs, and [others](https://github.com/ethereum/wiki/wiki/Clients)).-->

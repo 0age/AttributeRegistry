@@ -13,7 +13,7 @@ requires: 165
 
 ## Simple Summary
 <!--"If you can't explain it simply, you don't understand it well enough." Provide a simplified and layman-accessible explanation of the EIP.-->
-EIP-### provides a basic interface for querying a registry for attribute metadata assigned to Ethereum addresses.
+EIP-### provides a basic interface for querying a registry for attribute metadata assigned to Ethereum accounts.
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
@@ -22,9 +22,10 @@ This EIP contains the following core ideas:
 2. Claims are abstracted as standard "attributes" which represents metadata assigned to a given address. This is achieved due to decoupling of claims from the issuing party. Attributes are registered as a flat `uint256 -> uint256` key-value pair on each address, with the important property that **each attribute type has one canonical value per address**. This property allows for composability of attribute registries and advanced attribute formation.
 3. There is a generic method for determining the set of attribute keys or IDs made available by the registry. The standard does not specify requirements or recommendations for how attributes and their values are managed, or what additional metadata may be associated with attributes. It is likely that a standard set of attribute names and metadata schema could be proposed in a separate EIP.
 
-Here are potential advanced uses of attribute registries:
-1. Encoding complex boolean expressions which combine multiple attributes into a single uint256 key which is then parsed and evaluated by the registry logic.
-2. Values associated with an attribute can be used to query additional on-chain or off-chain metadata.
+Potential advanced uses of attribute registries include:
+* Encoding complex boolean expressions which combine multiple attributes into a single uint256 key, which is then parsed and evaluated by the registry logic.
+* Using values associated with an attribute to query additional on-chain or off-chain metadata.
+* Resolving attribute values by calling into seperate attribute registries or other contracts, delegating authority without changing the interface of the registry.
 
 ## Motivation
 <!--The motivation is critical for EIPs that want to change the Ethereum protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the EIP solves. EIP submissions without sufficient motivation may be rejected outright.-->
@@ -38,8 +39,6 @@ This EIP proposes a light-weight abstraction layer for a standard address metada
 <!--The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for any of the current Ethereum platforms (go-ethereum, parity, cpp-ethereum, ethereumj, ethereumjs, and [others](https://github.com/ethereum/wiki/wiki/Clients)).-->
 The Attribute Registry interface contains four functions, outlined as follows:
 ```
-pragma solidity ^0.4.25;
-
 /**
  * @title EIP-### Attribute Registry Standard interface. EIP-165 ID: 0x5f46473f
  */
@@ -131,11 +130,11 @@ There are no backwards compatibility concerns.
 
 ## Test Cases
 <!--Test cases for an implementation are mandatory for EIPs that are affecting consensus changes. Other EIPs can choose to include links to test cases if applicable.-->
-Targeted test cases with 100% code coverage can be found at [this repository](https://github.com/0age/AttributeRegistry). Refer to [the tpl-contracts repo](https://github.com/TPL-protocol/tpl-contracts) for tests on a more complex contract that implements the application registry interface.
+Targeted test cases with 100% code coverage can be found at [this repository](https://github.com/0age/AttributeRegistry). See [here](https://github.com/TPL-protocol/tpl-contracts) for tests on a more complex contract that implements the application registry interface.
 
 ## Implementation
 <!--The implementations must be completed before any EIP is given status "Final", but it need not be completed before the EIP is accepted. While there is merit to the approach of reaching consensus on the specification and rationale before writing code, the principle of "rough consensus and running code" is still useful when it comes to resolving many discussions of API details.-->
-The basic implementation that follows can be found at [this repository](https://github.com/0age/AttributeRegistry). Refer to [the tpl-contracts repo](https://github.com/TPL-protocol/tpl-contracts) (refer to [the tpl-contracts repo](https://github.com/TPL-protocol/tpl-contracts/blob/master/contracts/BasicJurisdiction.sol#L399) for an example of a more complex implementing contract):
+The basic implementation that follows can be found at [this repository](https://github.com/0age/AttributeRegistry) (see [here](https://github.com/TPL-protocol/tpl-contracts/blob/master/contracts/BasicJurisdiction.sol#L399) for an example of a more complex implementing contract):
 
 ```
 pragma solidity ^0.4.25;

@@ -2,11 +2,11 @@
 eip: ###
 title: ERC-### Attribute Registry Standard
 author: 0age (@0age), Santiago Palladino (@spalladino), Leo Arias (@elopio), Alejo Salles (@fiiiu), Stephane Gosselin (@thegostep)
-discussions-to: https://github.com/ethereum/EIPs/issues/###
+discussions-to: https://github.com/ethereum/EIPs/issues/1616
 status: Draft
 type: Standards Track
 category ERC
-created: 2018-09-14
+created: 2018-11-23
 requires: 165
 ---
 

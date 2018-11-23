@@ -14,7 +14,7 @@ This EIP also prescribes a general method for determining the set of attribute k
 
 Existing EIPs for assigning metadata to addresses include EIP-735 and EIP-780, which both allow for multiple claims to be issued on the same address for any given claim topic. This forces verifiers of said metadata to assess the veracity of each claim, taking into account the relative reputation of each claim issuer. It also prescribes a methodology for adding and removing claims, which may not be appropriate for all use cases. The Attribute Registry serves as an alternative standard in cases where these limitations are problematic.
 
-For more information, see the [EIP specification](https://github.com/0age/AttributeRegistry/blob/master/EIP-%23%23%23.md).
+For more information, see the [EIP specification](https://github.com/0age/AttributeRegistry/blob/master/EIP-%23%23%23.md). EIP discussion can be found at [EIP issue #1616](https://github.com/ethereum/EIPs/issues/1616).
 
 
 ## Table of Contents
@@ -95,7 +95,7 @@ Retrieve an ID of an attribute type defined on the registry by index. Used along
 
 ## Contribute
 
-PRs accepted.
+PRs accepted. Contribute to the discussion around this EIP [here](https://github.com/ethereum/EIPs/issues/1616).
 
 ## License
 

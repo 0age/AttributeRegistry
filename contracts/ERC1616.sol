@@ -2,9 +2,9 @@ pragma solidity ^0.4.25;
 
 
 /**
- * @title Attribute Registry interface. EIP-165 ID: 0x5f46473f
+ * @title ERC-1616 Attribute Registry interface. ERC-165 ID: 0x5f46473f
  */
-interface AttributeRegistryInterface {
+interface ERC1616 {
   /**
    * @notice Check if an attribute of the type with ID `attributeTypeID` has
    * been assigned to the account at `account` and is currently valid.

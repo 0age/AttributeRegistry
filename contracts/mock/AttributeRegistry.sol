@@ -1,12 +1,12 @@
 pragma solidity ^0.4.25;
 
-import "../AttributeRegistryInterface.sol";
+import "../ERC1616.sol";
 
 
 /**
- * @title A simple example of an Attribute Registry implementation.
+ * @title A simple example of an ERC1616 Attribute Registry implementation.
  */
-contract AttributeRegistry is AttributeRegistryInterface {
+contract AttributeRegistry is ERC1616 {
   // This particular implementation just defines two attribute types.
   enum Affiliation { Whitehat, Blackhat }
 
